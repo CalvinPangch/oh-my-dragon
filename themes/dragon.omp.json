@@ -181,6 +181,16 @@
         },
         {
           "properties": {
+            "cache_duration": "none",
+            "precision": 1
+          },
+          "template": " \ud83d\udc0f {{ printf \"%.1f\" (divf (float64 (sub .Data.PhysicalTotalMemory .Data.PhysicalAvailableMemory)) 1073741824.0) }} / {{ printf \"%.1f\" (divf (float64 .Data.PhysicalTotalMemory) 1073741824.0) }} GB ({{ printf \"%.0f\" (round .Data.PhysicalPercentUsed .Data.Precision) }}%) ",
+          "foreground": "#FF6E3A",
+          "type": "sysinfo",
+          "style": "plain"
+        },
+        {
+          "properties": {
             "cache_duration": "none"
           },
           "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} 🗼 {{ dateInZone \"15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",

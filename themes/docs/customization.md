@@ -364,6 +364,7 @@ To show current time in the prompt:
 
 ### Runtime & Tooling Context
 
+- The right prompt surfaces `🐏 RAM` usage (used/total plus percent) so you can spot memory pressure before launching heavy builds.
 - The Python segment now shows `🐍` plus your virtual environment and appends `🪶` when Poetry is active or `📦` when Pipenv launches a subshell.
 - Node (`⬢`), npm (`📦`), .NET (`🔬`), Go (`🐹`), and Java (`☕`) segments appear only when matching project files are detected, surfacing the resolved version for quick compatibility checks.
 - Remove or reorder any of these segments in `themes/dragon.omp.json` to fit your workflow, or change `display_mode` to `"always"` if you prefer persistent visibility.
