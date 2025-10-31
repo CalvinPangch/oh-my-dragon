@@ -19,7 +19,7 @@ The Dragon theme is a configuration-only deliverable with no persistent data sto
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": "1.0.0",
+  "version": 2,
   "final": true,
   "console_title_template": "{{ .Shell }} ~ {{ .Folder }}",
   "console_title_true_color_template": "{{ .Shell }} ~ {{ .Folder }}",
@@ -49,7 +49,7 @@ The Dragon theme is a configuration-only deliverable with no persistent data sto
 | Property | Type | Example | Purpose |
 |----------|------|---------|---------|
 | `$schema` | string | URL to oh-my-posh schema | Validates configuration format |
-| `version` | string | "1.0.0" | Theme version for tracking updates |
+| `version` | integer | 2 | oh-my-posh schema version (set to 2) |
 | `final` | boolean | true | Prevent oh-my-posh from modifying prompt |
 | `accent_color` | string | "#D4AF37" | Primary dragon gold color |
 | `colors` | object | {theme colors} | Named color definitions for reuse |

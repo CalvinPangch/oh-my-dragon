@@ -85,7 +85,7 @@ themes/
 
 - [ ] T013 [US1] Create themes/dragon.json main theme file with all 4 core segments (completed in Phase 2, T004-T009)
 - [ ] T014 [US1] Add $schema reference pointing to oh-my-posh schema in dragon.json
-- [ ] T015 [US1] Set version to "1.0.0" and final: true in dragon.json
+- [ ] T015 [US1] Set version to 2 and final_space: true in dragon.json
 - [ ] T016 [US1] Add console_title_template and console_title_true_color_template in dragon.json
 - [ ] T017 [US1] Verify dragon.json displays directory path with dragon gold background (#D4AF37)
 - [ ] T018 [US1] Verify git segment displays branch name with powerline style (⎇ symbol)

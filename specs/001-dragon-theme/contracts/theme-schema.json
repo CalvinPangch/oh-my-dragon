@@ -11,10 +11,10 @@
       "pattern": "https://raw\\.githubusercontent\\.com/JanDeDobbeleer/oh-my-posh/main/themes/schema\\.json"
     },
     "version": {
-      "type": "string",
-      "description": "Theme version (semantic versioning)",
-      "pattern": "^\\d+\\.\\d+\\.\\d+$",
-      "examples": ["1.0.0", "1.1.0"]
+      "type": "integer",
+      "description": "oh-my-posh configuration schema version",
+      "enum": [1, 2],
+      "default": 2
     },
     "final": {
       "type": "boolean",

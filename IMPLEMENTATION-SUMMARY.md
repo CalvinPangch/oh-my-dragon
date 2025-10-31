@@ -284,7 +284,7 @@ oh-my-dragon/
 ```json
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": "1.0.0",
+  "version": 2,
   "colors": { /* 7 named colors */ },
   "segments": [ /* 4-5 segment configurations */ ]
 }
@@ -419,4 +419,3 @@ The theme combines dragon-inspired aesthetics (metallic gold and crimson red col
 **Total Lines**: ~2000+ lines of configuration and documentation
 **Documentation**: ~40 KB of professional guides
 **Test Coverage**: Comprehensive test procedures for 3 platforms
-

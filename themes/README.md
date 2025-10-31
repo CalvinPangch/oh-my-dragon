@@ -185,4 +185,4 @@ themes/
 
 **Enjoy your dragon-themed terminal!** 🐉✨
 
-*Dragon oh-my-posh Theme v1.0.0 - Compatible with oh-my-posh 3.x+*
+*Dragon oh-my-posh Theme (schema version 2) - Compatible with oh-my-posh 3.x+*
