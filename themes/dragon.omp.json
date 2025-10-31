@@ -6,7 +6,7 @@
   },
   "transient_prompt": {
     "template": "🐉 🔥 ",
-    "foreground": "#FF4500"
+    "foreground": "#FF6E3A"
   },
   "console_title_template": "🐉 {{ .Shell }} in {{ .Folder }}",
   "blocks": [
@@ -19,7 +19,7 @@
             "cache_duration": "none"
           },
           "template": "🐉",
-          "foreground": "#FF4500",
+          "foreground": "#FF6E3A",
           "type": "text",
           "style": "plain"
         },
@@ -43,8 +43,8 @@
             "style": "full"
           },
           "template": "  {{ .Path }} ",
-          "foreground": "#000000",
-          "background": "#FF6347",
+          "foreground": "#1A1A1A",
+          "background": "#FF8266",
           "type": "path",
           "style": "diamond"
         },
@@ -57,7 +57,7 @@
           },
           "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} 🔥 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} ✨ {{ .Staging.String }}{{ end }} ",
           "foreground": "#FFD700",
-          "background": "#4B0082",
+          "background": "#8A2BE2",
           "type": "git",
           "style": "diamond"
         },
@@ -68,7 +68,7 @@
             "fetch_virtual_env": true
           },
           "template": "  {{ .Full }} ",
-          "foreground": "#000000",
+          "foreground": "#1A1A1A",
           "background": "#FFD700",
           "type": "python",
           "style": "diamond"
@@ -79,41 +79,12 @@
           },
           "trailing_diamond": "\u2500\u256e",
           "template": "  {{ .Full }} ",
-          "foreground": "#000000",
-          "background": "#32CD32",
+          "foreground": "#1A1A1A",
+          "background": "#66FF66",
           "type": "node",
           "style": "diamond"
         }
       ]
-    },
-    {
-      "type": "prompt",
-      "alignment": "left",
-      "segments": [
-        {
-          "properties": {
-            "cache_duration": "none"
-          },
-          "template": "\u2570\u2500",
-          "foreground": "#8B0000",
-          "type": "text",
-          "style": "plain"
-        },
-        {
-          "properties": {
-            "always_enabled": true,
-            "cache_duration": "none"
-          },
-          "template": "{{ if gt .Code 0 }}💀{{ else }}🔥{{ end }} ",
-          "foreground": "#FF4500",
-          "type": "status",
-          "style": "plain",
-          "foreground_templates": [
-            "{{ if gt .Code 0 }}#DC143C{{ end }}"
-          ]
-        }
-      ],
-      "newline": true
     },
     {
       "type": "rprompt",
@@ -124,8 +95,8 @@
             "style": "austin",
             "threshold": 500
           },
-          "template": "\u23f1\ufe0f {{ .FormattedMs }} ",
-          "foreground": "#FF8C00",
+          "template": " \u23f1 \ufe0f {{ .FormattedMs }} ",
+          "foreground": "#FFAB40",
           "type": "executiontime",
           "style": "plain"
         },
@@ -150,12 +121,34 @@
           "type": "battery",
           "style": "plain",
           "foreground_templates": [
-            "{{if eq \"Charging\" .State.String}}#32CD32{{end}}",
-            "{{if eq \"Discharging\" .State.String}}#FF4500{{end}}",
-            "{{if eq \"Full\" .State.String}}#00FF00{{end}}"
+            "{{if eq \"Charging\" .State.String}}#66FF66{{end}}",
+            "{{if eq \"Discharging\" .State.String}}#FF6E3A{{end}}",
+            "{{if eq \"Full\" .State.String}}#80FF80{{end}}"
           ]
         }
       ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "properties": {
+            "always_enabled": true,
+            "cache_duration": "none"
+          },
+          "leading_diamond": "\u2570\u2500",
+          "template": "{{ if gt .Code 0 }}💀{{ else }}🔥{{ end }} ",
+          "foreground": "#FF6E3A",
+          "background": "#8B0000",
+          "type": "status",
+          "style": "diamond",
+          "foreground_templates": [
+            "{{ if gt .Code 0 }}#FF4D6A{{ end }}"
+          ]
+        }
+      ],
+      "newline": true
     }
   ],
   "tooltips": [

@@ -1,10 +1,10 @@
 # Dragon oh-my-posh Theme 🐉
 
-A visually appealing, customizable oh-my-posh terminal prompt theme featuring dragon-inspired aesthetics with metallic gold and crimson red colors.
+A visually appealing, customizable oh-my-posh terminal prompt theme featuring dragon-inspired aesthetics with brilliant gold, flame orange, and deep crimson colors.
 
 ## Features
 
-✨ **Dragon Aesthetic**: Metallic gold (#D4AF37) and crimson red (#8B0000) colors evoking dragon power and mystique
+✨ **Dragon Aesthetic**: Brighter gold (#FFD700), flame orange (#FF6E3A), and crimson red (#8B0000) colors evoking dragon power and mystique
 🎨 **Fully Customizable**: Change colors, symbols, and segments without editing code
 ⚡ **Cross-Platform**: Works on Windows (PowerShell), macOS (Zsh), and Linux (Bash)
 🔧 **Easy Installation**: Simple copy-paste or script-based installation
@@ -59,7 +59,7 @@ Then reload: `source ~/.zshrc` or close/reopen PowerShell terminal
 ### Verification
 
 Open a new terminal. You should see:
-- Directory path with **dragon gold background** (#D4AF37)
+- Directory path with **dragon gold background** (#FFD700)
 - **✓** symbol on successful commands (green)
 - **✗** symbol on failed commands (red)
 - Git branch information when in a repository
@@ -94,13 +94,13 @@ cp docs/examples/custom-colors.json ~/.config/oh-my-posh/themes/dragon-custom.js
 
 | Color | Hex Code | Usage |
 |-------|----------|-------|
-| Dragon Gold | #D4AF37 | Primary accent, directory background |
-| Dragon Red | #8B0000 | Errors, warnings, execution time |
-| Dragon Silver | #C0C0C0 | Secondary accent, contrast |
-| Dragon Dark | #1a1a1a | Text on light backgrounds |
-| Dragon Emerald | #1B4D3E | Accent detail, mystique |
-| Success Green | #00AA00 | Git clean status |
-| Error Red | #FF0000 | Failed commands |
+| Dragon Gold | #FFD700 | Primary accent, python segment background |
+| Dragon Red | #8B0000 | Session/status backgrounds and dividers |
+| Flame Orange | #FF6E3A | Primary accent glyphs and fire motifs |
+| Ember Peach | #FF8266 | Path background for readability |
+| Arcane Violet | #8A2BE2 | Git segment background |
+| Verdant Scale | #66FF66 | Runtime (Node) background |
+| Dragon Dark | #1A1A1A | Text on light backgrounds |
 
 ## Customization Examples
 

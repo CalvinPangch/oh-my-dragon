@@ -8,12 +8,12 @@ A fierce and mystical dragon-themed prompt that brings the power and majesty of 
 
 The theme uses a dragon-inspired color scheme:
 
-- **🔴 Dark Red (#8B0000)**: Dragon blood - used for backgrounds
-- **🟠 Orange Red (#FF4500)**: Dragon fire - primary accent color
+- **🔴 Dark Red (#8B0000)**: Dragon blood - core status and divider accents
+- **🟠 Flame Orange (#FF6E3A)**: Dragon fire - primary accent highlights
 - **🟡 Gold (#FFD700)**: Dragon treasure - highlights and important info
-- **🔴 Tomato (#FF6347)**: Dragon scales - path background
-- **🟣 Indigo (#4B0082)**: Dragon magic - git background
-- **🟤 Saddle Brown (#8B4513)**: Dragon lair - time background
+- **🍑 Ember Peach (#FF8266)**: Dragon scales - path background
+- **💜 Arcane Violet (#8A2BE2)**: Dragon magic - git background
+- **🟢 Verdant Scale (#66FF66)**: Dragon vitality - runtime segments
 
 ## Visual Elements
 
@@ -94,7 +94,7 @@ The theme uses a dragon-inspired color scheme:
 ### Change Dragon Color
 Edit the first text segment's foreground color:
 ```json
-"foreground": "#FF4500"  // Change to your preferred color
+"foreground": "#FF6E3A"  // Change to your preferred color
 ```
 
 ### Modify Path Style
@@ -130,4 +130,3 @@ The theme creates a dramatic, multi-colored prompt that wraps around your curren
 ---
 
 **Created for warriors of the command line** 🐉⚔️
-
