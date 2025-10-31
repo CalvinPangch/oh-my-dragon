@@ -28,12 +28,13 @@
             "cache_duration": "none",
             "display_host": true
           },
-          "leading_diamond": "\u256d\u2500",
           "template": " {{ if .SSHSession }}  {{ end }}{{ .UserName }}@{{ .HostName }} ",
           "foreground": "#FFD700",
           "background": "#8B0000",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
           "type": "session",
-          "style": "diamond"
+          "style": "powerline"
         },
         {
           "properties": {
@@ -45,8 +46,10 @@
           "template": "  {{ .Path }} ",
           "foreground": "#1A1A1A",
           "background": "#FF8266",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
           "type": "path",
-          "style": "diamond"
+          "style": "powerline"
         },
         {
           "properties": {
@@ -58,37 +61,113 @@
           "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} 🔥 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} ✨ {{ .Staging.String }}{{ end }} ",
           "foreground": "#FFD700",
           "background": "#8A2BE2",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
           "type": "git",
-          "style": "diamond"
+          "style": "powerline"
         },
         {
           "properties": {
             "cache_duration": "none",
             "display_mode": "context",
-            "fetch_virtual_env": true
+            "display_virtual_env": true,
+            "fetch_virtual_env": true,
+            "fetch_version": true
           },
-          "template": "  {{ .Full }} ",
+          "template": "  \ud83d\udc0d {{ .Full }}{{ if (env \"POETRY_ACTIVE\") }} \ud83e\uddeb{{ end }}{{ if (env \"PIPENV_ACTIVE\") }} \ud83d\udce6{{ end }} ",
           "foreground": "#1A1A1A",
           "background": "#FFD700",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
           "type": "python",
-          "style": "diamond"
+          "style": "powerline"
         },
         {
           "properties": {
-            "cache_duration": "none"
+            "cache_duration": "none",
+            "display_mode": "context",
+            "fetch_version": true
           },
-          "trailing_diamond": "\u2500\u256e",
-          "template": "  {{ .Full }} ",
+          "template": "  \u2b22 {{ .Full }} ",
           "foreground": "#1A1A1A",
           "background": "#66FF66",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
           "type": "node",
-          "style": "diamond"
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_mode": "context",
+            "fetch_version": true
+          },
+          "template": "  \ud83d\udce6 {{ .Full }} ",
+          "foreground": "#1A1A1A",
+          "background": "#FFB347",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
+          "type": "npm",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_mode": "context",
+            "fetch_version": true
+          },
+          "template": "  \ud83d\udd2c {{ .Full }} ",
+          "foreground": "#1A1A1A",
+          "background": "#B19CD9",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
+          "type": "dotnet",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_mode": "context",
+            "fetch_version": true
+          },
+          "template": "  \ud83d\udc39 {{ .Full }} ",
+          "foreground": "#1A1A1A",
+          "background": "#98FB98",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
+          "type": "go",
+          "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_mode": "context",
+            "fetch_version": true
+          },
+          "template": "  \u2615 {{ .Full }} ",
+          "foreground": "#1A1A1A",
+          "background": "#F4A460",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
+          "type": "java",
+          "style": "powerline"
         }
       ]
     },
     {
       "type": "rprompt",
       "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "shell": "sh",
+            "command": "if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then git status --porcelain themes/dragon.omp.json themes/docs specs/001-dragon-theme | head -n 1; fi"
+          },
+          "template": "{{ if .Output }} \ud83e\uddea validate {{ end }}",
+          "foreground": "#FF6E3A",
+          "type": "command",
+          "style": "plain"
+        },
         {
           "properties": {
             "cache_duration": "none",
@@ -104,9 +183,59 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} \u25aa CET {{ dateInZone \"15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
+          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} 🗼 {{ dateInZone \"15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
           "foreground": "#FFD700",
           "type": "time",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_default": false
+          },
+          "template": "{{ if .Name }} \ud83c\udf0d {{ .Name }}{{ if .Subscription }} ({{ .Subscription }}){{ end }}{{ end }}",
+          "foreground": "#FFD700",
+          "type": "az",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_default": false,
+            "display_profile": true,
+            "display_region": true
+          },
+          "template": "{{ if .Profile }} \u2601\ufe0f {{ .Profile }}{{ if .Region }} ({{ .Region }}){{ end }}{{ end }}",
+          "foreground": "#FFD700",
+          "type": "aws",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ if .Project }} \ud83c\udf10 {{ .Project }}{{ if .Account }} ({{ .Account }}){{ end }}{{ end }}",
+          "foreground": "#FFD700",
+          "type": "gcp",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_default": false
+          },
+          "template": "{{ if .Context }} \u2699\ufe0f {{ .Context }}{{ if .Namespace }}:{{ .Namespace }}{{ end }}{{ end }}",
+          "foreground": "#66FF66",
+          "type": "kubernetes",
+          "style": "plain"
+        },
+        {
+          "properties": {
+            "cache_duration": "none"
+          },
+          "template": "{{ if .Context }} \ud83d\udc33 {{ .Context }}{{ end }}",
+          "foreground": "#66FF66",
+          "type": "docker",
           "style": "plain"
         },
         {
@@ -137,12 +266,13 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "leading_diamond": "\u2570\u2500",
           "template": "{{ if gt .Code 0 }}💀{{ else }}🔥{{ end }} ",
           "foreground": "#FF6E3A",
           "background": "#8B0000",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
           "type": "status",
-          "style": "diamond",
+          "style": "powerline",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#FF4D6A{{ end }}"
           ]
@@ -164,6 +294,37 @@
       "tips": [
         "git",
         "g"
+      ]
+    },
+    {
+      "template": " npm scripts ",
+      "foreground": "#1A1A1A",
+      "background": "#FFB347",
+      "type": "npm",
+      "style": "diamond",
+      "tips": [
+        "npm"
+      ]
+    },
+    {
+      "template": " cloud account ",
+      "foreground": "#FFD700",
+      "type": "aws",
+      "style": "plain",
+      "tips": [
+        "aws",
+        "az",
+        "gcp"
+      ]
+    },
+    {
+      "template": " cluster context ",
+      "foreground": "#66FF66",
+      "type": "kubernetes",
+      "style": "plain",
+      "tips": [
+        "kube",
+        "docker"
       ]
     }
   ],

@@ -163,12 +163,15 @@ Find the `git` segment properties:
 
 ### Change Directory Symbol (Powerline)
 
+Dragon ships with rounded separators powered by `leading_powerline_symbol` set to `\uE0B6` and `powerline_symbol` set to `\uE0B4`. Override either value to change the connector style.
+
 Find the `path` segment:
 
 ```json
 {
   "type": "path",
-  "powerline_symbol": "►",        // Change from ◆
+  "leading_powerline_symbol": "\uE0B6",  // Default rounded lead-in
+  "powerline_symbol": "►",                // Change from \uE0B4 curved connector
   "properties": {
     "folder_separator_icon": "/"  // Change path separator
   }
@@ -356,6 +359,25 @@ To show current time in the prompt:
 - `"3:04:05 PM"` - 12-hour with AM/PM
 - `"15:04"` - 24-hour HH:MM only
 - `"January 2"` - Date format
+
+## Developer Diagnostics
+
+### Runtime & Tooling Context
+
+- The Python segment now shows `🐍` plus your virtual environment and appends `🪶` when Poetry is active or `📦` when Pipenv launches a subshell.
+- Node (`⬢`), npm (`📦`), .NET (`🔬`), Go (`🐹`), and Java (`☕`) segments appear only when matching project files are detected, surfacing the resolved version for quick compatibility checks.
+- Remove or reorder any of these segments in `themes/dragon.omp.json` to fit your workflow, or change `display_mode` to `"always"` if you prefer persistent visibility.
+
+### Cloud & Container Safeguards
+
+- Azure (`🌍`), AWS (`☁️`), and GCP (`🌐`) segments show the active subscription/profile/account so you can double-check credentials before executing remote commands.
+- Kubernetes (`⚙️`) and Docker (`🐳`) segments display the current context/namespace, making it obvious when you are targeting production versus local clusters.
+- Each segment remains hidden until its tooling is detected, keeping the prompt quiet for purely local tasks.
+
+### Validation Reminder
+
+- A right prompt `🧪 validate` badge appears whenever Git reports changes in `themes/dragon.omp.json`, `themes/docs/`, or `specs/001-dragon-theme/`.
+- Run `bash themes/tests/theme-validation.sh` after edits; once the working tree is clean, the badge disappears automatically, signaling a ready state.
 
 ## Configuration Examples
 
