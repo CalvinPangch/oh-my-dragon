@@ -1,0 +1,82 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "version": "1.0.0",
+  "final": true,
+  "console_title_template": "{{ .Shell }} ~ {{ .Folder }}",
+  "console_title_true_color_template": "{{ .Shell }} ~ {{ .Folder }}",
+  "accent_color": "#FFD700",
+  "colors": {
+    "dragon_gold": "#FFD700",
+    "dragon_red": "#FF1493",
+    "dragon_silver": "#FF69B4",
+    "dragon_dark": "#1a1a1a",
+    "dragon_emerald": "#FF1493",
+    "success": "#00FF00",
+    "error": "#FF0000"
+  },
+  "segments": [
+    {
+      "type": "path",
+      "style": "diamond",
+      "powerline_symbol": "◆",
+      "foreground": "#1a1a1a",
+      "background": "#FFD700",
+      "properties": {
+        "style": "full",
+        "folder_separator_icon": "/",
+        "home_icon": "~",
+        "truncation_length": 3,
+        "max_width": 40,
+        "truncate_from_left": false,
+        "hide_root_prefix": false
+      }
+    },
+    {
+      "type": "git",
+      "style": "powerline",
+      "powerline_symbol": "⎇",
+      "foreground": "#1a1a1a",
+      "background": "#FFD700",
+      "foreground_templates": [
+        "{{ if or (.Working.Changed) (.Staging.Changed) }}#1a1a1a{{ else if .UpstreamGone }}#FF0000{{ else if gt .Behind 0 }}#FF0000{{ else }}#00FF00{{ end }}"
+      ],
+      "background_templates": [
+        "{{ if or (.Working.Changed) (.Staging.Changed) }}#FFD700{{ else if .UpstreamGone }}#FF1493{{ else if gt .Behind 0 }}#FF1493{{ else }}#FFD700{{ end }}"
+      ],
+      "properties": {
+        "display_stash_count": true,
+        "display_upstream_icon": true,
+        "untracked_count_icon": "?",
+        "ignore_submodules": false,
+        "local_working_icon": "●",
+        "local_staged_icon": "◆",
+        "ahead_and_behind_count_enabled": true
+      }
+    },
+    {
+      "type": "status",
+      "style": "diamond",
+      "foreground_templates": [
+        "{{ if eq .Code 0 }}#00FF00{{ else }}#FF0000{{ end }}"
+      ],
+      "properties": {
+        "success_icon": "✓",
+        "error_icon": "✗",
+        "status_separator_icon": ""
+      }
+    },
+    {
+      "type": "executiontime",
+      "style": "diamond",
+      "foreground": "#1a1a1a",
+      "background": "#FF1493",
+      "properties": {
+        "style": "austin",
+        "threshold": 1000,
+        "format": "{0:hh\\\\:mm\\\\:ss.fff}"
+      }
+    }
+  ],
+  "transient": false,
+  "scan_folders": []
+}

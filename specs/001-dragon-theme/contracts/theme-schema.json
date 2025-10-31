@@ -1,0 +1,308 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dragon oh-my-posh Theme Schema",
+  "description": "Configuration schema for the Dragon oh-my-posh theme with validation rules",
+  "type": "object",
+  "required": ["$schema", "version", "final", "accent_color", "colors", "segments"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to oh-my-posh theme schema",
+      "pattern": "https://raw\\.githubusercontent\\.com/JanDeDobbeleer/oh-my-posh/main/themes/schema\\.json"
+    },
+    "version": {
+      "type": "string",
+      "description": "Theme version (semantic versioning)",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0", "1.1.0"]
+    },
+    "final": {
+      "type": "boolean",
+      "description": "Prevent oh-my-posh from modifying the prompt",
+      "default": true
+    },
+    "console_title_template": {
+      "type": "string",
+      "description": "Template for terminal title bar",
+      "default": "{{ .Shell }} ~ {{ .Folder }}"
+    },
+    "console_title_true_color_template": {
+      "type": "string",
+      "description": "Template for terminal title with color support",
+      "default": "{{ .Shell }} ~ {{ .Folder }}"
+    },
+    "accent_color": {
+      "type": "string",
+      "description": "Primary accent color (dragon gold)",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "default": "#D4AF37"
+    },
+    "colors": {
+      "type": "object",
+      "description": "Named color definitions for theme",
+      "properties": {
+        "dragon_gold": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Primary dragon gold color",
+          "default": "#D4AF37"
+        },
+        "dragon_red": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Dragon red for errors and warnings",
+          "default": "#8B0000"
+        },
+        "dragon_silver": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Silver accent color",
+          "default": "#C0C0C0"
+        },
+        "dragon_dark": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Dark background for text",
+          "default": "#1a1a1a"
+        },
+        "dragon_emerald": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Emerald accent for detail",
+          "default": "#1B4D3E"
+        },
+        "success": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Success status color",
+          "default": "#00AA00"
+        },
+        "error": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Error status color",
+          "default": "#FF0000"
+        }
+      },
+      "required": ["dragon_gold", "dragon_red", "success", "error"]
+    },
+    "segments": {
+      "type": "array",
+      "description": "Prompt segments configuration",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Segment type",
+            "enum": ["path", "git", "status", "executiontime", "time", "shell", "battery", "memory", "disk_usage", "command", "os", "node", "python", "ruby", "golang"]
+          },
+          "style": {
+            "type": "string",
+            "description": "Segment rendering style",
+            "enum": ["powerline", "plain", "diamond", "accordion"]
+          },
+          "powerline_symbol": {
+            "type": "string",
+            "description": "Symbol for powerline style separator",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "foreground": {
+            "type": "string",
+            "description": "Text color",
+            "pattern": "^#[0-9A-Fa-f]{6}$|^transparent$"
+          },
+          "background": {
+            "type": "string",
+            "description": "Background color",
+            "pattern": "^#[0-9A-Fa-f]{6}$|^transparent$"
+          },
+          "foreground_templates": {
+            "type": "array",
+            "description": "Conditional foreground colors (for status segment)"
+          },
+          "background_templates": {
+            "type": "array",
+            "description": "Conditional background colors"
+          },
+          "properties": {
+            "type": "object",
+            "description": "Segment-specific properties"
+          }
+        }
+      }
+    },
+    "transient": {
+      "type": "boolean",
+      "description": "Display transient prompt on Enter",
+      "default": false
+    },
+    "transient_prompt": {
+      "type": "string",
+      "description": "Template for transient prompt (when true)",
+      "default": "❯ "
+    },
+    "scan_folders": {
+      "type": "array",
+      "description": "Folders to scan for context",
+      "items": {
+        "type": "string"
+      },
+      "default": []
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "directorySegment": {
+      "type": "object",
+      "description": "Directory/path segment configuration",
+      "properties": {
+        "type": {
+          "const": "path"
+        },
+        "style": {
+          "enum": ["powerline", "plain", "diamond"]
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "folder_separator_icon": {
+              "type": "string",
+              "default": "/",
+              "description": "Character separating path components"
+            },
+            "home_icon": {
+              "type": "string",
+              "default": "~",
+              "description": "Symbol for home directory"
+            },
+            "truncation_length": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 3,
+              "description": "Number of directories to show when truncated"
+            },
+            "max_width": {
+              "type": "integer",
+              "minimum": 20,
+              "default": 40,
+              "description": "Maximum characters before truncation"
+            },
+            "truncate_from_left": {
+              "type": "boolean",
+              "default": false,
+              "description": "Truncate from left (true) or right (false)"
+            }
+          }
+        }
+      }
+    },
+    "gitSegment": {
+      "type": "object",
+      "description": "Git segment configuration",
+      "properties": {
+        "type": {
+          "const": "git"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "display_stash_count": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show count of stashed changes"
+            },
+            "display_upstream_icon": {
+              "type": "boolean",
+              "default": true,
+              "description": "Show tracking branch status"
+            },
+            "untracked_count_icon": {
+              "type": "string",
+              "default": "?",
+              "minLength": 1,
+              "maxLength": 2,
+              "description": "Symbol for untracked files"
+            },
+            "ignore_submodules": {
+              "type": "boolean",
+              "default": false,
+              "description": "Ignore git submodules in status"
+            },
+            "local_working_icon": {
+              "type": "string",
+              "default": "●",
+              "minLength": 1,
+              "maxLength": 2,
+              "description": "Symbol for modified files"
+            },
+            "local_staged_icon": {
+              "type": "string",
+              "default": "◆",
+              "minLength": 1,
+              "maxLength": 2,
+              "description": "Symbol for staged files"
+            }
+          }
+        }
+      }
+    },
+    "statusSegment": {
+      "type": "object",
+      "description": "Status/exit code segment configuration",
+      "properties": {
+        "type": {
+          "const": "status"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "success_icon": {
+              "type": "string",
+              "default": "✓",
+              "minLength": 1,
+              "maxLength": 2,
+              "description": "Symbol for successful command"
+            },
+            "error_icon": {
+              "type": "string",
+              "default": "✗",
+              "minLength": 1,
+              "maxLength": 2,
+              "description": "Symbol for failed command"
+            }
+          }
+        }
+      }
+    },
+    "executionTimeSegment": {
+      "type": "object",
+      "description": "Execution time segment configuration",
+      "properties": {
+        "type": {
+          "const": "executiontime"
+        },
+        "properties": {
+          "type": "object",
+          "properties": {
+            "threshold": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 300000,
+              "default": 1000,
+              "description": "Only show if command took > N milliseconds"
+            },
+            "format": {
+              "type": "string",
+              "default": "{0:hh\\\\:mm\\\\:ss.fff}",
+              "description": ".NET time format string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
