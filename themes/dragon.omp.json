@@ -141,6 +141,15 @@
         },
         {
           "properties": {
+            "cache_duration": "none"
+          },
+          "template": "\u23f0 {{ .CurrentDate | date \"15:04\" }} \u25aa CET {{ .CurrentDate | dateInZone \"15:04\" \"Europe/Berlin\" }} ",
+          "foreground": "#FFD700",
+          "type": "time",
+          "style": "plain"
+        },
+        {
+          "properties": {
             "cache_duration": "none",
             "charged_icon": "💎",
             "charging_icon": "⚡",
