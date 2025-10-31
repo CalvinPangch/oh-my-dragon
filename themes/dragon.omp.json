@@ -77,21 +77,11 @@
           "properties": {
             "cache_duration": "none"
           },
+          "trailing_diamond": "\u2500\u256e",
           "template": "  {{ .Full }} ",
           "foreground": "#000000",
           "background": "#32CD32",
           "type": "node",
-          "style": "diamond"
-        },
-        {
-          "properties": {
-            "cache_duration": "none"
-          },
-          "trailing_diamond": "\u2500\u256e",
-          "template": "  {{ .CurrentDate | date .Format }} ",
-          "foreground": "#FFD700",
-          "background": "#8B4513",
-          "type": "time",
           "style": "diamond"
         }
       ]
@@ -143,7 +133,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "\u23f0 {{ .CurrentDate | date \"15:04\" }} \u25aa CET {{ .CurrentDate | dateInZone \"15:04\" \"Europe/Berlin\" }} ",
+          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} \u25aa CET {{ dateInZone \"15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
           "foreground": "#FFD700",
           "type": "time",
           "style": "plain"
