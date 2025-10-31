@@ -76,6 +76,37 @@
           "style": "diamond"
         }
       ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "15:04:05"
+          },
+          "template": "Local {{ .CurrentDate | date \"15:04:05\" }}",
+          "foreground": "#1a1a1a",
+          "powerline_symbol": "|",
+          "background": "#C0C0C0",
+          "type": "time",
+          "style": "diamond"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "time_format": "15:04:05",
+            "time_location": "Europe/Paris"
+          },
+          "template": "CET {{ dateInZone \"15:04:05\" (now) \"Europe/Paris\" }}",
+          "foreground": "#1a1a1a",
+          "powerline_symbol": "|",
+          "background": "#D4AF37",
+          "type": "time",
+          "style": "diamond"
+        }
+      ]
     }
   ],
   "version": 3,
