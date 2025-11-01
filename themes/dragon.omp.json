@@ -18,7 +18,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "\ud83d\udc32",
+          "template": "\ud83d\udc32 ",
           "foreground": "#FF6E3A",
           "type": "text",
           "style": "plain"
@@ -40,7 +40,7 @@
           "properties": {
             "cache_duration": "none",
             "folder_icon": "\ud83d\udcc1",
-            "home_icon": "\ud83c\udff0",
+            "home_icon": "\ud83c\udff0 ",
             "style": "full"
           },
           "template": "  {{ .Path }} ",
@@ -151,6 +151,22 @@
           "powerline_symbol": "\uE0B4",
           "type": "java",
           "style": "powerline"
+        },
+        {
+          "properties": {
+            "cache_duration": "none",
+            "display_mode": "context",
+            "display_default": false,
+            "display_profile": true,
+            "display_region": true
+          },
+          "template": "{{ if or .Profile .User .Role }}  \u2601\ufe0f IAM {{ if .Profile }}{{ .Profile }}{{ else if .User }}{{ .User }}{{ else if .Role }}{{ .Role }}{{ end }}{{ if .Region }} ({{ .Region }}){{ end }} {{ end }}",
+          "foreground": "#1A1A1A",
+          "background": "#FFD700",
+          "leading_powerline_symbol": "\uE0B6",
+          "powerline_symbol": "\uE0B4",
+          "type": "aws",
+          "style": "powerline"
         }
       ]
     },
@@ -193,7 +209,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} \u25fb {{ dateInZone \"MST 15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
+          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} \ud83d\uddfc {{ dateInZone \"MST 15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
           "foreground": "#FFD700",
           "type": "time",
           "style": "plain"
@@ -206,18 +222,6 @@
           "template": "{{ if .Name }} \ud83c\udf0d {{ .Name }}{{ if .Subscription }} ({{ .Subscription }}){{ end }}{{ end }}",
           "foreground": "#FFD700",
           "type": "az",
-          "style": "plain"
-        },
-        {
-          "properties": {
-            "cache_duration": "none",
-            "display_default": false,
-            "display_profile": true,
-            "display_region": true
-          },
-          "template": "{{ if .Profile }} \u2601\ufe0f {{ .Profile }}{{ if .Region }} ({{ .Region }}){{ end }}{{ end }}",
-          "foreground": "#FFD700",
-          "type": "aws",
           "style": "plain"
         },
         {
