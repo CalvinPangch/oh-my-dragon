@@ -61,6 +61,12 @@
           "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \ud83d\udd25 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \u2728 {{ .Staging.String }}{{ end }} ",
           "foreground": "#FFD700",
           "background": "#8A2BE2",
+          "foreground_templates": [
+            "{{ if and (not .Working.Changed) (not .Staging.Changed) }}#00AA00{{ end }}"
+          ],
+          "background_templates": [
+            "{{ if and (not .Working.Changed) (not .Staging.Changed) }}#003300{{ end }}"
+          ],
           "leading_powerline_symbol": "\uE0B6",
           "powerline_symbol": "\uE0B4",
           "type": "git",
