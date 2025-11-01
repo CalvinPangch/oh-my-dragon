@@ -53,12 +53,12 @@
         },
         {
           "properties": {
-            "branch_icon": "\uF126 ",
+            "branch_icon": "\uD83D\uDD31 ",
             "cache_duration": "none",
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
-          "template": " {{ if .Detached }}\uF298 {{ .ShortHash }}{{ else }}{{ if eq .Ref \"main\" }}\uF126 {{ .Ref }}{{ else }}\u2694 {{ .Ref }}{{ end }}{{ end }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \ud83d\udd25 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \u2728 {{ .Staging.String }}{{ end }} ",
+          "template": " {{ if .Detached }}\uF298 {{ .ShortHash }}{{ else }}{{ if eq .Ref \"main\" }}\uD83D\uDD31 {{ .Ref }}{{ else }}\u2694 {{ .Ref }}{{ end }}{{ end }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \ud83d\udd25 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \u2728 {{ .Staging.String }}{{ end }} ",
           "foreground": "#FFD700",
           "background": "#8A2BE2",
           "foreground_templates": [
