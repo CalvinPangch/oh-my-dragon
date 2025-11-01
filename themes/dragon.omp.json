@@ -1,14 +1,14 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "secondary_prompt": {
-    "template": "\u2570\u2500🔥 ",
+    "template": "\u2570\u2500\ud83d\udd25 ",
     "foreground": "#8B0000"
   },
   "transient_prompt": {
-    "template": "🐉 🔥 ",
+    "template": "\ud83d\udc32 \ud83d\udd25 ",
     "foreground": "#FF6E3A"
   },
-  "console_title_template": "🐉 {{ .Shell }} in {{ .Folder }}",
+  "console_title_template": "\ud83d\udc32 {{ .Shell }} in {{ .Folder }}",
   "blocks": [
     {
       "type": "prompt",
@@ -18,7 +18,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": "🐉",
+          "template": "\ud83d\udc32",
           "foreground": "#FF6E3A",
           "type": "text",
           "style": "plain"
@@ -28,7 +28,7 @@
             "cache_duration": "none",
             "display_host": true
           },
-          "template": " {{ if .SSHSession }}  {{ end }}{{ .UserName }}@{{ .HostName }} ",
+          "template": " {{ if .SSHSession }}\ud83d\udd12 {{ end }}\ud83d\udc64 {{ .UserName }}@{{ .HostName }} ",
           "foreground": "#FFD700",
           "background": "#8B0000",
           "leading_powerline_symbol": "\uE0B6",
@@ -39,8 +39,8 @@
         {
           "properties": {
             "cache_duration": "none",
-            "folder_icon": "📁",
-            "home_icon": "🏰",
+            "folder_icon": "\ud83d\udcc1",
+            "home_icon": "\ud83c\udff0",
             "style": "full"
           },
           "template": "  {{ .Path }} ",
@@ -53,12 +53,12 @@
         },
         {
           "properties": {
-            "branch_icon": " ",
+            "branch_icon": "\uF126",
             "cache_duration": "none",
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
-          "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} 🔥 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} ✨ {{ .Staging.String }}{{ end }} ",
+          "template": " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \ud83d\udd25 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \u2728 {{ .Staging.String }}{{ end }} ",
           "foreground": "#FFD700",
           "background": "#8A2BE2",
           "leading_powerline_symbol": "\uE0B6",
@@ -74,7 +74,7 @@
             "fetch_virtual_env": true,
             "fetch_version": true
           },
-          "template": "  \ud83d\udc0d {{ .Full }}{{ if (env \"POETRY_ACTIVE\") }} \ud83e\uddeb{{ end }}{{ if (env \"PIPENV_ACTIVE\") }} \ud83d\udce6{{ end }} ",
+          "template": "  \ud83d\udc0d {{ .Full }}{{ if (env \"POETRY_ACTIVE\") }} \ud83e\udeb6{{ end }}{{ if (env \"PIPENV_ACTIVE\") }} \ud83d\udce6{{ end }} ",
           "foreground": "#1A1A1A",
           "background": "#FFD700",
           "leading_powerline_symbol": "\uE0B6",
@@ -174,7 +174,7 @@
             "style": "austin",
             "threshold": 500
           },
-          "template": " \u23f1 \ufe0f {{ .FormattedMs }} ",
+          "template": " \u23f1\ufe0f {{ .FormattedMs }} ",
           "foreground": "#FFAB40",
           "type": "executiontime",
           "style": "plain"
@@ -184,7 +184,7 @@
             "cache_duration": "none",
             "precision": 1
           },
-          "template": " \ud83d\udc0f {{ printf \"%.1f\" (divf (float64 (sub .Data.PhysicalTotalMemory .Data.PhysicalAvailableMemory)) 1073741824.0) }} / {{ printf \"%.1f\" (divf (float64 .Data.PhysicalTotalMemory) 1073741824.0) }} GB ({{ printf \"%.0f\" (round .Data.PhysicalPercentUsed .Data.Precision) }}%) ",
+          "template": " \ud83d\udc0f RAM {{ printf \"%.1f\" (divf (float64 (sub .Data.PhysicalTotalMemory .Data.PhysicalAvailableMemory)) 1073741824.0) }} / {{ printf \"%.1f\" (divf (float64 .Data.PhysicalTotalMemory) 1073741824.0) }} GB ({{ printf \"%.0f\" (round .Data.PhysicalPercentUsed .Data.Precision) }}%) ",
           "foreground": "#FF6E3A",
           "type": "sysinfo",
           "style": "plain"
@@ -193,7 +193,7 @@
           "properties": {
             "cache_duration": "none"
           },
-          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} 🗼 {{ dateInZone \"15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
+          "template": " \u23f0 {{ .CurrentDate | date \"15:04:05\" }} \u25fb {{ dateInZone \"MST 15:04:05\" .CurrentDate \"Europe/Berlin\" }} ",
           "foreground": "#FFD700",
           "type": "time",
           "style": "plain"
@@ -251,9 +251,9 @@
         {
           "properties": {
             "cache_duration": "none",
-            "charged_icon": "💎",
-            "charging_icon": "⚡",
-            "discharging_icon": "🐲"
+            "charged_icon": "\ud83d\udc8e",
+            "charging_icon": "\u26a1",
+            "discharging_icon": "\ud83d\udc32"
           },
           "template": "{{ if not .Error }}{{ .Icon }} {{ .Percentage }}{{ end }} ",
           "foreground": "#FFD700",
@@ -276,13 +276,10 @@
             "always_enabled": true,
             "cache_duration": "none"
           },
-          "template": "{{ if gt .Code 0 }}💀{{ else }}🔥{{ end }} ",
+          "template": "{{ if gt .Code 0 }}\ud83d\udc80{{ else }}\ud83d\udd25{{ end }} ",
           "foreground": "#FF6E3A",
-          "background": "#8B0000",
-          "leading_powerline_symbol": "\uE0B6",
-          "powerline_symbol": "\uE0B4",
           "type": "status",
-          "style": "powerline",
+          "style": "plain",
           "foreground_templates": [
             "{{ if gt .Code 0 }}#FF4D6A{{ end }}"
           ]
@@ -296,7 +293,7 @@
       "properties": {
         "fetch_status": false
       },
-      "template": " 🐉 {{ .HEAD }} ",
+      "template": " \ud83d\udc32 {{ .HEAD }} ",
       "foreground": "#FFD700",
       "background": "#8B0000",
       "type": "git",
