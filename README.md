@@ -20,7 +20,7 @@ The theme uses a dragon-inspired color scheme:
 ### Main Prompt Structure
 
 ```
-🐉╭─[👤 user@hostname][📁 /current/path][🔱 main 🔥 2][🐍 python 3.11][⏰ 12:34 PM]─╮
+🐉╭─[👤 user@hostname][📁 /current/path][ main 🔥 2][🐍 python 3.11][⏰ 12:34 PM]─╮
 ╰─🔥
 ```
 
@@ -31,6 +31,7 @@ The theme uses a dragon-inspired color scheme:
 - **💀** - Skull (error indicator)
 - **🏰** - Castle (home directory)
 - **✨** - Sparkles (staged git changes)
+- **⚔** - Non-main branch indicator
 - **🐲** - Dragon (battery discharging)
 - **⚡** - Lightning (battery charging)
 - **💎** - Gem (battery full)
@@ -42,7 +43,7 @@ The theme uses a dragon-inspired color scheme:
 1. **Dragon Icon** - Your terminal guardian
 2. **User Session** - Shows username and hostname (SSH indicator included)
 3. **Path Segment** - Current directory with castle emoji for home
-4. **Git Status** - Branch name with fire emoji for working changes, sparkles for staged
+4. **Git Status** - Branch icon on `main`, crossed swords on other branches, fire for working changes, sparkles for staged
 5. **Python Environment** - Active Python version and virtual env
 6. **Node Version** - Node.js version when in a Node project
 7. **Time Display** - Current time in your preferred format
