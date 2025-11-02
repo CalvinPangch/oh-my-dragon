@@ -20,7 +20,7 @@ The theme uses a dragon-inspired color scheme:
 ### Main Prompt Structure
 
 ```
-🐉╭─[👤 user@hostname][📁 /current/path][🔱 main 🔥 2][🐍 python 3.11][⏰ 12:34 PM]─╮
+🐉╭─[🐉 user@hostname][📁 /current/path][🔱 main 🔥 2][🐍 python 3.11][⏰ 12:34 PM]─╮
 ╰─🔥
 ```
 
