@@ -28,7 +28,7 @@
             "cache_duration": "none",
             "display_host": true
           },
-          "template": " {{ if .SSHSession }}\ud83d\udd12 {{ end }}\ud83d\udc64 {{ .UserName }}@{{ .HostName }} ",
+          "template": " {{ if .SSHSession }}\ud83d\udd12 {{ end }}\ud83d\udc09 {{ .UserName }}@{{ .HostName }} ",
           "foreground": "#FFD700",
           "background": "#8B0000",
           "leading_powerline_symbol": "\uE0B6",
@@ -58,7 +58,7 @@
             "fetch_status": true,
             "fetch_upstream_icon": true
           },
-          "template": " {{ if .Detached }}\uF298 {{ .ShortHash }}{{ else }}{{ if eq .Ref \"main\" }}\uD83D\uDD31 {{ .Ref }}{{ else }}\u2694 {{ .Ref }}{{ end }}{{ end }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} \ud83d\udd25 {{ .Working.String }}{{ end }}{{ if .Staging.Changed }} \u2728 {{ .Staging.String }}{{ end }} ",
+          "template": " {{ if .Detached }}\uF298 {{ .ShortHash }}{{ else }}{{ if eq .Ref \"main\" }}\uD83D\uDD31 {{ .Ref }}{{ else }}\u2694 {{ .Ref }}{{ end }}{{ end }}{{ if .BranchStatus }} {{ if or .Working.Changed .Staging.Changed }}{{ replace .BranchStatus \"\u2261\" \"\uD83D\uDD27\" }}{{ else }}{{ replace .BranchStatus \"\u2261\" \"\u2705\" }}{{ end }}{{ end }}{{ if .Working.Changed }} \u270f\ufe0f {{.Working.String }}{{ end }}{{ if .Staging.Changed }} \u2728 {{ .Staging.String }}{{ end }} ",
           "foreground": "#FFD700",
           "background": "#8A2BE2",
           "foreground_templates": [
